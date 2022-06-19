@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My docker</title>
+    <script>
+        var url = "http://localhost:3000"
+        fetch(url+"/data").then((response)=>
+            response.json()
+        ).then((data)=>{
+            console.log(data)
+            var html ='';
+            data.data.forEach((ele)=>{
+                html += `<li>${ele}</li>`
+            })
+
+            document.getElementById('lst').innerHTML = html;
+        }).catch((err)=>{
+            console.log(err)
+        })
+    </script>
+</head>
+<body>
+    <h3>Object</h3>
+    <ul id="lst">
+
+    </ul>
+</body>
+</html>

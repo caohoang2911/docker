@@ -1,0 +1,16 @@
+version: '1'
+services:
+  server:
+    build: ./server
+    volumes: 
+      - ./server:/app
+    ports:
+      - 3000:8080
+  client: 
+    image: nginx:alpine
+    volumes:
+      - ./client:/usr/share/nginx/html
+    ports:
+      - 3001:80
+    depends_on:
+      - server
